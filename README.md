@@ -2,8 +2,8 @@
 
 A Spring Boot REST API for event seat booking. Users browse events, view seat availability, book seats, and cancel bookings. Booking is concurrency-safe: a seat cannot be double-booked, even when many requests arrive at the same moment.
 
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.x-brightgreen)
 ![MySQL](https://img.shields.io/badge/MySQL-8-blue)
 
 ## Highlights
@@ -39,16 +39,16 @@ A Spring Boot REST API for event seat booking. Users browse events, view seat av
 
 ## Tech Stack
 
-| Area | Technology |
-|---|---|
-| Language | Java 17 |
-| Framework | Spring Boot 3.x |
+| Area | Technology                          |
+|---|-------------------------------------|
+| Language | Java 21                             |
+| Framework | Spring Boot 4.x                     |
 | Security | Spring Security, JWT (jjwt), BCrypt |
-| Persistence | Spring Data JPA / Hibernate |
-| Database | MySQL 8 |
-| Utilities | Lombok |
-| Testing | JUnit 5, Mockito |
-| Build tool | Maven |
+| Persistence | Spring Data JPA / Hibernate         |
+| Database | MySQL 8                             |
+| Utilities | Lombok                              |
+| Testing | JUnit 5, Mockito                    |
+| Build tool | Maven                               |
 
 ## Architecture
 
@@ -149,7 +149,7 @@ Booking a seat that is already taken returns `409 Conflict` with a JSON error bo
 
 ### Prerequisites
 
-- JDK 17
+- JDK 21
 - Maven (or use the included `./mvnw`)
 - MySQL 8
 
@@ -191,17 +191,6 @@ Log in again to get a token that carries the admin role.
 
 The test suite includes unit tests for the service layer and a concurrency test. The concurrency test creates an event, starts 50 threads that try to book the same seat simultaneously, and asserts that exactly one booking succeeds. It runs against a separate test database (`seat_booking_test`).
 
-## Screenshots
-
-| Booking success | Seat already booked (409) |
-|---|---|
-| ![Booking success](docs/images/booking-success.png) | ![Conflict](docs/images/booking-conflict.png) |
-
-| Concurrency test result |
-|---|
-| ![Concurrency test](docs/images/concurrency-test.png) |
-
-A Thunder Client collection with all requests is included in the `docs/` folder.
 
 ## Design Decisions
 
@@ -224,8 +213,3 @@ A Thunder Client collection with all requests is included in the `docs/` folder.
 - Payment integration before confirming a booking
 - Integration tests for the security rules
 - Docker setup and cloud deployment
-
-## Author
-
-**YOUR NAME**
-GitHub: [github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME) | LinkedIn: [linkedin.com/in/YOUR_PROFILE](https://linkedin.com/in/YOUR_PROFILE)
