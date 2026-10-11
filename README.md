@@ -157,8 +157,8 @@ Booking a seat that is already taken returns `409 Conflict` with a JSON error bo
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/seatbooking.git
-   cd seatbooking
+   git clone https://github.com/sai-varshith-14/Seat-Booking-System
+   cd Seat-Booking-System
    ```
 2. Create the database:
    ```sql
@@ -190,6 +190,11 @@ Log in again to get a token that carries the admin role.
 ```
 
 The test suite includes unit tests for the service layer and a concurrency test. The concurrency test creates an event, starts 50 threads that try to book the same seat simultaneously, and asserts that exactly one booking succeeds. It runs against a separate test database (`seat_booking_test`).
+
+Create the database:
+   ```sql
+   CREATE DATABASE seat_booking_test;
+   ```
 
 
 ## Design Decisions
